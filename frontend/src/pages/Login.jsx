@@ -12,12 +12,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/authCheck", {
-        firstName: username,
-        lastName: password, //body
+      const response = await axios.post("http://localhost:3000/api/authcheck", {
+        name: username,
+        pass: password, //body
       });
 
-      if (response.data.success) {
+      if (response.status == 200) {
         setAuthPass(true); //true herer---
       } else {
         alert("Authentication failed!");
